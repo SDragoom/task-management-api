@@ -48,6 +48,28 @@ tests/
  └── TaskManagement.Tests           -> Unit tests
 ```
 
+## SOLID Principles Applied
+
+This project was designed following SOLID principles:
+
+- **Single Responsibility Principle (SRP):** each class has a single responsibility (controllers handle HTTP, services handle business logic, repositories handle data access).
+- **Open/Closed Principle (OCP):** the architecture allows extending functionality (e.g., changing persistence provider) without modifying business logic.
+- **Liskov Substitution Principle (LSP):** abstractions such as `ITaskRepository` can be replaced by different implementations or mocks without affecting consumers.
+- **Interface Segregation Principle (ISP):** small and focused interfaces (`ITaskService`, `ITaskRepository`) avoid unnecessary dependencies.
+- **Dependency Inversion Principle (DIP):** higher-level modules depend on abstractions, enabled through dependency injection.
+
+## RESTful API Design
+
+This API follows RESTful principles:
+
+- Resource-based endpoints (`/api/tasks`)
+- Proper HTTP verbs (`GET`, `POST`, `PUT`, `DELETE`)
+- Stateless requests
+- Standard HTTP status codes
+- JSON request/response format
+- Consistent URI naming conventions
+
+
 ### Layer responsibilities
 
 - **API**: exposes REST endpoints and handles HTTP concerns
@@ -78,8 +100,8 @@ Required by the challenge and ideal for quick local execution without external d
 ### Clone repository
 
 ```bash
-git clone <repository-url>
-cd TaskManagementApi
+git clone https://github.com/SDragoom/task-management-api.git
+cd task-management-api
 ```
 
 ---
@@ -107,16 +129,18 @@ cd src/TaskManagement.Api
 dotnet run
 ```
 
-API will be available at:
+API will be available using the URLs configured in `launchSettings.json`, typically:
 
 ```text
-http://localhost:5027
+http://localhost:xxxx
+https://localhost:xxxx
 ```
 
 Swagger:
 
 ```text
-http://localhost:5027/swagger
+http://localhost:xxxx/swagger
+https://localhost:xxxx/swagger
 ```
 
 ---
@@ -127,12 +151,7 @@ From solution root:
 
 ```bash
 dotnet test
-```
-
-Expected:
-
-```text
-Passed! - Failed: 0
+Expected result: all tests should pass successfully.
 ```
 
 ---
